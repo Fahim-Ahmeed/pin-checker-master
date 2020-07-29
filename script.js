@@ -4,9 +4,9 @@ function randomValue(){
     let random=Math.random();
     let randomNumber=random*10000;
     let number=Math.round(randomNumber);
-    display.value=number; 
-  }
-    // display.value=number;
+    display.value=number;
+    
+}
     
  
 //function for input button
@@ -40,12 +40,16 @@ document.getElementById('input-display').value=backspace;
 document.getElementById('submit-button').addEventListener('click',function(){
  let inputValue=document.getElementById('input-display').value;
  let generateValue=document.getElementById('generate-display').value;
-  if(inputValue==generateValue){
+  if(inputValue==''){
+    document.getElementById('failed').style.display='block';
+  }
+  else if(inputValue===generateValue){
     document.getElementById('success').style.display='block';
   }
   else{
     document.getElementById('failed').style.display='block';
-  } 
+  }
+ 
 })
 
 
