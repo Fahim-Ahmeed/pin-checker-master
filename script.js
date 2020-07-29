@@ -2,8 +2,8 @@
 function randomValue(){
     let display=document.getElementById('generate-display');
     let random=Math.random();
-    let randomNumber=random*10000;
-    let number=Math.round(randomNumber);
+    let randomNumber=random*(9999-1000);
+    let number=Math.ceil(randomNumber)+1000;
     display.value=number;
     
 }
@@ -41,7 +41,7 @@ document.getElementById('submit-button').addEventListener('click',function(){
  let inputValue=document.getElementById('input-display').value;
  let generateValue=document.getElementById('generate-display').value;
   if(inputValue==''){
-    document.getElementById('failed').style.display='block';
+     alert('please press value');
   }
   else if(inputValue===generateValue){
     document.getElementById('success').style.display='block';
