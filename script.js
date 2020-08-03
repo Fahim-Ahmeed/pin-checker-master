@@ -5,6 +5,9 @@ function randomValue(){
     let randomNumber=random*(9999-1000);
     let number=Math.ceil(randomNumber)+1000;
     display.value=number;
+    document.getElementById('input-display').value='';
+    document.getElementById('success').style.display='none';
+    document.getElementById('failed').style.display='none';
     
 }
     
@@ -12,7 +15,7 @@ function randomValue(){
 //function for input button
 document.getElementById('input-display').value='';
 function inputDisplay(num){
-    let display=document.getElementById('input-display').value;
+    // let display=document.getElementById('input-display').value;
     document.getElementById('input-display').value +=num;
 
 
@@ -40,16 +43,17 @@ document.getElementById('input-display').value=backspace;
 document.getElementById('submit-button').addEventListener('click',function(){
  let inputValue=document.getElementById('input-display').value;
  let generateValue=document.getElementById('generate-display').value;
-  if(inputValue==''){
-     alert('please press value');
+  if(inputValue=='' || inputValue.length<4){
+     alert('please press 4 digit value');
   }
-  else if(inputValue===generateValue){
-    document.getElementById('success').style.display='block';
+  else if(inputValue!=generateValue){
+    if(inputValue!=generateValue){
+      document.getElementById('failed').style.display='block';
+    }
   }
   else{
-    document.getElementById('failed').style.display='block';
+    document.getElementById('success').style.display='block';
   }
  
 })
-
 
